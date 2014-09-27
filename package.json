@@ -1,0 +1,11 @@
+{
+  "name": "generator-buildapp",
+  "version": "0.1.0",
+  "description": "This is our scaffold generator for The Buildapp",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.17.6"
+  }
+}
