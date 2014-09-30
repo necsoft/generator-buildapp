@@ -24,6 +24,10 @@ module.exports = yeoman.generators.Base.extend({
       name : 'is_resizable',
       type: 'confirm',
       message: 'Is resizable?'
+    },{
+      name : 'has_jquery',
+      type: 'confirm',
+      message: 'Do you want to use jQuery 2 in your project?'
     }];
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
@@ -31,6 +35,7 @@ module.exports = yeoman.generators.Base.extend({
       this.has_frame = props.has_frame;
       this.has_toolbar = props.has_toolbar;
       this.is_resizable = props.is_resizable;
+      this.has_jquery = props.has_jquery;
       done();
     }.bind(this));
   },
@@ -57,6 +62,7 @@ module.exports = yeoman.generators.Base.extend({
       has_frame : this.has_frame,
       has_toolbar: this.has_toolbar,
       is_resizable: this.is_resizable,
+      has_jquery: this.has_jquery
     };
 
     //Project Files
@@ -67,15 +73,18 @@ module.exports = yeoman.generators.Base.extend({
 
     //Node-webkit
     this.copy("_nw.js", this.appName+"/app/nw.js");
-    this.copy("_main.html", this.appName+"/app/views/main.html");
+    this.template("_main.html", this.appName+"/app/views/main.html",context);
 
     //Stylesheets
     this.copy("_source.styl",this.appName+"/app/stylesheets/stylus/source.styl");
 
     //Views
-    this.copy("_index.html",this.appName+"/app/views/index.html");
+    this.template("_index.html",this.appName+"/app/views/index.html",context);
 
     //Javascripts
     this.copy("_index.js",this.appName+"/app/js/index.js");
+  },
+  end: function () {
+    this.spawnCommand('npm',['install'],{cwd:this.appName});
   }
 });

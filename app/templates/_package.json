@@ -3,6 +3,7 @@
   "description": "<%= description %>",
   "version": "0.0.0",
   "main": "/app/views/main.html",
+  "repository": "",
   "window": {
     "toolbar": <%= has_toolbar %>,
     "frame": <%= has_frame %>,
@@ -10,6 +11,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-stylus": "^0.18.0",
+    "fluidity": "*",
+    "grunt-contrib-stylus": "^0.18.0"
   }
 }
