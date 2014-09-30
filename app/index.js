@@ -29,6 +29,8 @@ module.exports = yeoman.generators.Base.extend({
       this.appName = props.appName;
       this.description = props.description;
       this.has_frame = props.has_frame;
+      this.has_toolbar = props.has_toolbar;
+      this.is_resizable = props.is_resizable;
       done();
     }.bind(this));
   },
