@@ -3,7 +3,6 @@ var yeoman = require('yeoman-generator');
 module.exports = yeoman.generators.Base.extend({
   start_and_prompting: function () {
     console.log('The Buildapp - Project generator');
-
     // Done for async
     var done = this.async();
     //Prompt
@@ -22,14 +21,33 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir(this.appName);
     this.mkdir(this.appName+"/app");
     this.mkdir(this.appName+"/app/static");
-    this.mkdir(this.appName+"/app/static/img");
-    this.mkdir(this.appName+"/app/static/stylesheets");
+    this.mkdir(this.appName+"/app/static/images");
     this.mkdir(this.appName+"/app/static/fonts");
+    this.mkdir(this.appName+"/app/js");
+    this.mkdir(this.appName+"/app/js/modules");
+    this.mkdir(this.appName+"/app/views");
+    this.mkdir(this.appName+"/app/views/partials");
+    this.mkdir(this.appName+"/app/stylesheets");
+    this.mkdir(this.appName+"/app/stylesheets/stylus");
   },
   copy_files: function(){
-    this.copy("_main.html", this.appName+"/app/main.html");
-    this.copy("_nw.js", this.appName+"/app/nw.js");
-    this.copy("_package.json", this.appName+"/package.json");
+    //Project Files
     this.copy("_gruntfile.js", this.appName+"/gruntfile.js");
+    this.copy("_package.json", this.appName+"/package.json");
+    this.copy("_README.md", this.appName+"/README.md");
+    this.copy("_.gitignore",this.appName+"/.gitignore")
+
+    //Node-webkit
+    this.copy("_nw.js", this.appName+"/app/nw.js");
+    this.copy("_main.html", this.appName+"/app/views/main.html");
+
+    //Stylesheets
+    this.copy("_source.styl",this.appName+"/app/stylesheets/stylus/source.styl");
+
+    //Views
+    this.copy("_index.html",this.appName+"/app/views/index.html");
+
+    //Javascripts
+    this.copy("_index.js",this.appName+"/app/js/index.js");
   }
 });
