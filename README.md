@@ -19,3 +19,28 @@ Y listo! Ya podemos correr:
 ```
 yo buildapp
 ```
+
+# Estructura de un proyecto
+La estructura inicial de un proyecto de Buildapp es la siguiente:
+
+```
+├── README.md
+├── app
+│   ├── js
+│   │   ├── index.js
+│   │   └── modules
+│   ├── nw.js
+│   ├── static
+│   │   ├── fonts
+│   │   └── images
+│   ├── stylesheets
+│   │   ├── style.css
+│   │   └── stylus
+│   │       └── source.styl
+│   └── views
+│       ├── index.html
+│       ├── main.html
+│       └── partials
+├── gruntfile.js
+└── package.json
+```
