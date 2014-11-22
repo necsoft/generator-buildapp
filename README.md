@@ -7,3 +7,15 @@ Este generador, como la mayoría de los generadores de Yeoman utiliza el modulo 
 ```
 npm install --save yeoman-generator
 ```
+
+# Linkear el generador en local
+Como este generador no esta en npm, para poder tenerlo en los generadores de yeoman hay que correr lo siguiente en el directorio raiz:
+
+```
+npm link
+```
+Y listo! Ya podemos correr:
+
+```
+yo buildapp
+```
